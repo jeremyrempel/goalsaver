@@ -9,6 +9,36 @@
   </head>
 
   <body>
-    <%= yield %>
+
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <nav>
+
+    <% if signed_in? %>
+      Welcome to <%= link_to "Goal Saver", '#', id: "logo" %>, <%= current_user.fname + " " + current_user.lname %>.
+      <br/>
+    <% end %>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
+        <li><a href="#">Assets/Liabilities</a></li>
+        <li><a href="#">Valuations</a></li>
+        <li><a href="#">Goals</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Help</a></li>
+        <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", sign_in_path %></li>
+      <% end %>
+
+    </ul>
+    </nav>
+  </header>
+
+    <div class="container">
+
+
+      <%= yield %>
+    </div>
+
   </body>
 </html>
