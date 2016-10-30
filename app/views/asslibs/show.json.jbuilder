@@ -1,0 +1,1 @@
+json.partial! "asslibs/asslib", asslib: @asslib
