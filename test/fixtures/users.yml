@@ -3,9 +3,9 @@
 one:
   fname: MyString
   lname: MyString
-  email: MyString
+  email: email1@example.com
 
 two:
   fname: MyString
   lname: MyString
-  email: MyString
+  email: email2@example.com
