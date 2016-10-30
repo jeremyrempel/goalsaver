@@ -1,4 +1,5 @@
 class AsslibsController < ApplicationController
+  before_action :require_login
   before_action :set_asslib, only: [:show, :edit, :update, :destroy]
 
   # GET /asslibs
