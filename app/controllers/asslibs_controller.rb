@@ -27,6 +27,9 @@ class AsslibsController < ApplicationController
   def create
     @asslib = Asslib.new(asslib_params)
 
+    # set defaults
+    @asslib.user_id = current_user.id
+
     respond_to do |format|
       if @asslib.save
         format.html { redirect_to @asslib, notice: 'Asslib was successfully created.' }

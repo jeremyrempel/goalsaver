@@ -16,14 +16,16 @@ ActiveRecord::Schema.define(version: 20161030182910) do
   enable_extension "plpgsql"
 
   create_table "asslibs", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "users_id"
+    t.string   "name",                       null: false
     t.text     "description"
-    t.string   "altype"
-    t.boolean  "active"
-    t.string   "currency"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "altype",                     null: false
+    t.boolean  "active",      default: true, null: false
+    t.string   "currency",                   null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["users_id"], name: "index_asslibs_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +41,5 @@ ActiveRecord::Schema.define(version: 20161030182910) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  add_foreign_key "asslibs", "users"
 end

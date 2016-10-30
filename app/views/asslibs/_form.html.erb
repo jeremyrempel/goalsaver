@@ -28,17 +28,12 @@
 
   <div class="field">
     <%= f.label :active %>
-    <%= f.check_box :active %>
+    <%= f.check_box :active, :checked => true %>
   </div>
 
   <div class="field">
     <%= f.label :currency %>
     <%= f.text_field :currency %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
   </div>
 
   <div class="actions">
