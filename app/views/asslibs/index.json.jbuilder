@@ -1,0 +1,1 @@
+json.array! @asslibs, partial: 'asslibs/asslib', as: :asslib
