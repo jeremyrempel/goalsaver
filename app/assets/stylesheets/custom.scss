@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$light-gray: #777;
+
 /* universal */
 body {
   padding-top: 60px;
@@ -45,7 +47,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $light-gray;;
 }
 
 p {
@@ -54,7 +56,6 @@ p {
 }
 
 /* header */
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -64,16 +65,16 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 #welcome-user {
   float: left;
-  padding-top: 16px;
+  padding-left: 10px;
+  padding-top: 9px;
   font-weight: bold;
-  color: gray;
+  color: $light-gray;
 }

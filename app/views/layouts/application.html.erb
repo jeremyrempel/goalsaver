@@ -13,7 +13,7 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
     <nav>
 
-    <%= link_to "Goal Saver", '#', id: "logo" %>
+    <%= link_to "Goal Saver", root_path, id: "logo" %>
 
     <% if signed_in? %>
       <div id="welcome-user">
@@ -23,7 +23,8 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if signed_in? %>
-        <li><a href="#">Assets/Liabilities</a></li>
+        <li><%= link_to 'Asset/Liabilities', asslibs_path %></li>
+        <!--<li><a href="#">Assets/Liabilities</a></li>-->
         <li><a href="#">Valuations</a></li>
         <li><a href="#">Goals</a></li>
         <li><a href="#">Profile</a></li>

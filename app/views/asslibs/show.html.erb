@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @asslib.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @asslib.description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @asslib.altype %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @asslib.active %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @asslib.currency %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @asslib.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_asslib_path(@asslib) %> |
+<%= link_to 'Back', asslibs_path %>
