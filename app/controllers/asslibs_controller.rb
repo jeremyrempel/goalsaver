@@ -5,11 +5,12 @@ class AsslibsController < ApplicationController
   # GET /asslibs
   # GET /asslibs.json
   def index
-    @asslibs = Asslib.all
+    @asslibs = Asslib.where(:user_id => 1)
   end
 
   # GET /asslibs/1
   # GET /asslibs/1.json
+  # TODO filter to make sure valid user
   def show
   end
 
@@ -19,6 +20,7 @@ class AsslibsController < ApplicationController
   end
 
   # GET /asslibs/1/edit
+  # TODO filter to make sure valid user
   def edit
   end
 
@@ -29,6 +31,7 @@ class AsslibsController < ApplicationController
 
     # set defaults
     @asslib.user_id = current_user.id
+    @asslib.active = true
 
     respond_to do |format|
       if @asslib.save
@@ -60,7 +63,7 @@ class AsslibsController < ApplicationController
   def destroy
     @asslib.destroy
     respond_to do |format|
-      format.html { redirect_to asslibs_url, notice: 'Asslib was successfully destroyed.' }
+      format.html { redirect_to asslibs_url, notice: 'Asset/Liability was deleted.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +76,6 @@ class AsslibsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asslib_params
-      params.require(:asslib).permit(:name, :description, :type, :active, :currency, :user_id)
+      params.require(:asslib).permit(:name, :description, :type, :active, :altype, :currency)
     end
 end

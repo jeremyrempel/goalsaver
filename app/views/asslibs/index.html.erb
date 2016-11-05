@@ -2,7 +2,7 @@
 
 <h1>Asset and Liabilities</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,7 +26,7 @@
         <td><%= asslib.user_id %></td>
         <td><%= link_to 'Show', asslib %></td>
         <td><%= link_to 'Edit', edit_asslib_path(asslib) %></td>
-        <td><%= link_to 'Destroy', asslib, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', asslib, method: :delete, data: { confirm: 'All transactions will be deleted. Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

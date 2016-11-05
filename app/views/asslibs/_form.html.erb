@@ -1,7 +1,7 @@
 <%= form_for(asslib) do |f| %>
   <% if asslib.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(asslib.errors.count, "error") %> prohibited this asslib from being saved:</h2>
+      <h2><%= pluralize(asslib.errors.count, "error") %> prohibited this Asset/Liability from being saved:</h2>
 
       <ul>
       <% asslib.errors.full_messages.each do |message| %>
@@ -22,21 +22,31 @@
   </div>
 
   <div class="field">
-    <%= f.label :altype %>
-    <%= f.text_field :altype %>
+    <%= f.label :altype, 'Asset/Liability' %>
+    <%= f.select(:altype) do %>
+      <% [['Asset', 'ASSET'], ['Liability', 'LIABILITY']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active, :checked => true %>
-  </div>
+  <% if !@asslib.new_record? %>
+    <div class="field">
+      <%= f.label :active %>
+      <%= f.check_box :active, :checked => true %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :currency %>
-    <%= f.text_field :currency %>
+    <%= f.select(:currency) do %>
+      <% [['USD', 'USD'], ['CAD', 'CAD']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save" %>
   </div>
 <% end %>
