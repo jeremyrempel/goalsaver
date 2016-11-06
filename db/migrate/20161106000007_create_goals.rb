@@ -4,7 +4,7 @@ class CreateGoals < ActiveRecord::Migration[5.0]
       t.string :name
       t.date :date
       t.decimal :value
-      t.string :currency
+      t.string :currency, :precision => 8, :scale => 2
       t.integer :user_id
 
       t.timestamps

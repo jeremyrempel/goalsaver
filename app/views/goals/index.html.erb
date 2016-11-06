@@ -2,14 +2,13 @@
 
 <h1>Goals</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Date</th>
       <th>Value</th>
       <th>Currency</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,10 +20,9 @@
         <td><%= goal.date %></td>
         <td><%= goal.value %></td>
         <td><%= goal.currency %></td>
-        <td><%= goal.user_id %></td>
         <td><%= link_to 'Show', goal %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

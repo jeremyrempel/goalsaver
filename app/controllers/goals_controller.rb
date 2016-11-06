@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.where(:user_id => 1)
   end
 
   # GET /goals/1
@@ -25,6 +25,9 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
+
+    # set defaults
+    @goal.user_id = current_user.id
 
     respond_to do |format|
       if @goal.save
