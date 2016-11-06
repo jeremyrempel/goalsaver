@@ -16,13 +16,12 @@
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
-        <td><%= goal.name %></td>
+        <td><%= link_to goal.name, goal %></td>
         <td><%= goal.date %></td>
         <td><%= goal.value %></td>
         <td><%= goal.currency %></td>
-        <td><%= link_to 'Show', goal %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default active" %></td>
+        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default active" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Goal', new_goal_path %>
+<%= link_to 'New Goal', new_goal_path, class: "btn btn-primary active" %>
