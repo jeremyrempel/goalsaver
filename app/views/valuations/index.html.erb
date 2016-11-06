@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Valuations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Asslib</th>
+      <th>Year</th>
+      <th>Period</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valuations.each do |valuation| %>
+      <tr>
+        <td><%= valuation.user_id %></td>
+        <td><%= valuation.asslib_id %></td>
+        <td><%= valuation.year %></td>
+        <td><%= valuation.period %></td>
+        <td><%= valuation.value %></td>
+        <td><%= link_to 'Show', valuation %></td>
+        <td><%= link_to 'Edit', edit_valuation_path(valuation) %></td>
+        <td><%= link_to 'Destroy', valuation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valuation', new_valuation_path %>

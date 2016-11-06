@@ -1,0 +1,42 @@
+<%= form_for(valuation) do |f| %>
+  <% if valuation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valuation.errors.count, "error") %> prohibited this valuation from being saved:</h2>
+
+      <ul>
+      <% valuation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :asslib_id %>
+    <%= f.number_field :asslib_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :period %>
+    <%= f.text_field :period %>
+  </div>
+
+  <div class="field">
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
