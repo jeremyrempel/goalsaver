@@ -3,7 +3,7 @@ class CreateValuations < ActiveRecord::Migration[5.0]
     create_table :valuations do |t|
       t.integer :user_id
       t.integer :asslib_id
-      t.int :year
+      t.integer :year
       t.string :period
       t.decimal :value
 
