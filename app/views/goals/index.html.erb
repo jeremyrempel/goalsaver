@@ -20,8 +20,8 @@
         <td><%= goal.date %></td>
         <td><%= goal.value %></td>
         <td><%= goal.currency %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default active" %></td>
-        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default active" %></td>
+        <td><%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
