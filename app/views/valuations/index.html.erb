@@ -2,11 +2,9 @@
 
 <h1>Valuations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Asslib</th>
       <th>Year</th>
       <th>Period</th>
       <th>Value</th>
@@ -17,8 +15,6 @@
   <tbody>
     <% @valuations.each do |valuation| %>
       <tr>
-        <td><%= valuation.user_id %></td>
-        <td><%= valuation.asslib_id %></td>
         <td><%= valuation.year %></td>
         <td><%= valuation.period %></td>
         <td><%= valuation.value %></td>
@@ -32,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Valuation', new_valuation_path %>
+<%= link_to 'New Valuation', new_valuation_path, class: 'btn btn-primary active' %>
