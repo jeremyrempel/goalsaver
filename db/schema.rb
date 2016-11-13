@@ -62,4 +62,7 @@ ActiveRecord::Schema.define(version: 20161106233312) do
   end
 
   add_foreign_key "asslibs", "users"
+  add_foreign_key "goals", "users"
+  add_foreign_key "valuations", "asslibs"
+  add_foreign_key "valuations", "users"
 end
