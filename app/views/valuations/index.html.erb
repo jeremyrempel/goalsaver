@@ -19,8 +19,8 @@
         <td><%= valuation.period %></td>
         <td><%= valuation.value %></td>
         <td><%= link_to 'Show', valuation %></td>
-        <td><%= link_to 'Edit', edit_valuation_path(valuation) %></td>
-        <td><%= link_to 'Destroy', valuation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_valuation_path(valuation), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Delete', valuation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
