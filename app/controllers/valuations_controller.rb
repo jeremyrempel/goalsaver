@@ -27,6 +27,9 @@ class ValuationsController < ApplicationController
   def create
     @valuation = Valuation.new(valuation_params)
 
+    # set defaults
+    @valuation.user_id = current_user.id
+
     respond_to do |format|
       if @valuation.save
         format.html { redirect_to @valuation, notice: 'Valuation was successfully created.' }

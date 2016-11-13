@@ -12,18 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :asslib_id %>
-    <%= f.number_field :asslib_id %>
+    <%= f.label :asslib_id, "Asset/Liability" %>
+    <%= collection_select(:valuation, :asslib_id, Asslib.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.select(:year) do %>
+      <% for i in 2000..Time.now.year do -%>
+        <%= content_tag(:option, i, value: i) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= f.label :period %>
-    <%= f.text_field :period %>
+    <%= f.select(:period) do %>
+      <% [['Q1'], ['Q2'], ['Q3'],['Q4']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">
