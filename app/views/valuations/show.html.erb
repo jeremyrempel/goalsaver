@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @valuation.user_id %>
-</p>
-
-<p>
-  <strong>Asslib:</strong>
-  <%= @valuation.asslib_id %>
+  <strong>Asset/Liability:</strong>
+  <%= @valuation.asslib.name %>
 </p>
 
 <p>
@@ -22,7 +17,7 @@
 
 <p>
   <strong>Value:</strong>
-  <%= @valuation.value %>
+  $<%= @valuation.value %>
 </p>
 
 <%= link_to 'Edit', edit_valuation_path(@valuation) %> |
