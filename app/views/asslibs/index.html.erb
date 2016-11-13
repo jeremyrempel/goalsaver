@@ -17,14 +17,13 @@
   <tbody>
     <% @asslibs.each do |asslib| %>
       <tr>
-        <td><%= asslib.name %></td>
+        <td><%= link_to asslib.name, asslib %></td>
         <td><%= asslib.description %></td>
         <td><%= asslib.altype %></td>
         <td><%= asslib.active %></td>
         <td><%= asslib.currency %></td>
-        <td><%= link_to 'Show', asslib %></td>
-        <td><%= link_to 'Edit', edit_asslib_path(asslib) %></td>
-        <td><%= link_to 'Delete', asslib, method: :delete, data: { confirm: 'All transactions will be deleted. Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_valuation_path(asslib), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Delete', asslib, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Asset/Liability', new_asslib_path %>
+<%= link_to 'New Asset/Liability', new_asslib_path, class: "btn btn-primary active" %>
