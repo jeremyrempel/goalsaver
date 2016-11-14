@@ -5,7 +5,7 @@ class AsslibsController < ApplicationController
   # GET /asslibs
   # GET /asslibs.json
   def index
-    @asslibs = Asslib.where(:user_id => 1)
+    @asslibs = current_user.asslibs
   end
 
   # GET /asslibs/1
