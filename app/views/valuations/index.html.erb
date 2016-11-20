@@ -28,4 +28,8 @@
 
 <br>
 
-<%= link_to 'New Valuation', new_valuation_path, class: 'btn btn-primary active' %>
+<% if current_user.asslibs.empty? %>
+  Please add an asset/liability first
+<% else %>
+  <%= link_to 'New Valuation', new_valuation_path, class: 'btn btn-primary active' %>
+<% end %>

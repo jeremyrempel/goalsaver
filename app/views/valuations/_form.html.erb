@@ -11,35 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :asslib_id, "Asset/Liability" %>
-    <%= collection_select(:valuation, :asslib_id, Asslib.all, :id, :name) %>
+    <%= collection_select(:valuation, :asslib_id, Asslib.all, :id, :name, {}, {:class => "form-control"}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :year %>
-    <%= f.select(:year) do %>
+    <%= f.select(:year,[],{},{:class => "form-control"}) do %>
       <% for i in 2000..Time.now.year do -%>
         <%= content_tag(:option, i, value: i) %>
       <% end %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :period %>
-    <%= f.select(:period) do %>
-      <% [['Q1'], ['Q2'], ['Q3'],['Q4']].each do |c| -%>
-        <%= content_tag(:option, c.first, value: c.last) %>
-      <% end %>
-    <% end %>
+    <%= f.select(:period, ['Q1','Q2', 'Q3','Q4'], {}, {:class => "form-control"})%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :value %>
-    $<%= f.text_field :value %>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <%= f.text_field :value, :class => "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="btn-group" role="group" aria-label="...">
+    <%= f.submit 'Save', :class => "btn btn-primary active" %>
+    <%= link_to 'Cancel', valuations_path, :class => "btn btn-default" %>
   </div>
 <% end %>
