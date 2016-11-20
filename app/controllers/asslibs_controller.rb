@@ -76,6 +76,6 @@ class AsslibsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asslib_params
-      params.require(:asslib).permit(:name, :description, :type, :active, :altype, :currency)
+      params.require(:asslib).permit(:name, :description, :active, :altype, :currency)
     end
 end

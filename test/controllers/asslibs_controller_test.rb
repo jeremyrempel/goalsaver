@@ -3,6 +3,8 @@ require 'test_helper'
 class AsslibsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @asslib = asslibs(:one)
+    user = User.new(fname: "Dead", lname: "Pool", email: "dp@marvel.com", password: "password" )
+    sign_in_as(user)
   end
 
   test "should get index" do
@@ -17,7 +19,7 @@ class AsslibsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create asslib" do
     assert_difference('Asslib.count') do
-      post asslibs_url, params: { asslib: { active: @asslib.active, currency: @asslib.currency, description: @asslib.description, name: @asslib.name, type: @asslib.type, user_id: @asslib.user_id } }
+      post asslibs_url, params: { asslib: { active: @asslib.active, currency: @asslib.currency, description: @asslib.description, name: @asslib.name, altype: @asslib.altype } }
     end
 
     assert_redirected_to asslib_url(Asslib.last)
@@ -34,7 +36,7 @@ class AsslibsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update asslib" do
-    patch asslib_url(@asslib), params: { asslib: { active: @asslib.active, currency: @asslib.currency, description: @asslib.description, name: @asslib.name, type: @asslib.type, user_id: @asslib.user_id } }
+    patch asslib_url(@asslib), params: { asslib: { active: @asslib.active, currency: @asslib.currency, description: @asslib.description, name: @asslib.name, altype: @asslib.altype, user_id: @asslib.user_id } }
     assert_redirected_to asslib_url(@asslib)
   end
 
