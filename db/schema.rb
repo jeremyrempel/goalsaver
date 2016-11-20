@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 20161106233312) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       limit: 50, null: false
     t.date     "date"
     t.decimal  "value"
     t.string   "currency"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|

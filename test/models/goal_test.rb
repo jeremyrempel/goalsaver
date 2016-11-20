@@ -29,4 +29,10 @@ class GoalTest < ActiveSupport::TestCase
     assert_not @goal.valid?
   end
 
+  # length requirements
+  test "goal should not be too long" do
+    @goal.name = "a" * 51
+    assert_not @goal.valid?
+  end
+
 end
