@@ -16,26 +16,26 @@ ActiveRecord::Schema.define(version: 20161106233312) do
   enable_extension "plpgsql"
 
   create_table "asslibs", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.string   "name",                       null: false
     t.text     "description"
     t.string   "altype",                     null: false
     t.boolean  "active",      default: true, null: false
     t.string   "currency",                   null: false
-    t.integer  "user_id",                    null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["users_id"], name: "index_asslibs_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_asslibs_on_user_id", using: :btree
   end
 
   create_table "goals", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name",       limit: 50, null: false
     t.date     "date"
     t.decimal  "value"
     t.string   "currency"
-    t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["user_id"], name: "index_goals_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,11 +54,12 @@ ActiveRecord::Schema.define(version: 20161106233312) do
   create_table "valuations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "asslib_id"
-    t.integer  "year"
-    t.string   "period"
+    t.date     "date"
     t.decimal  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["asslib_id"], name: "index_valuations_on_asslib_id", using: :btree
+    t.index ["user_id"], name: "index_valuations_on_user_id", using: :btree
   end
 
   add_foreign_key "asslibs", "users"

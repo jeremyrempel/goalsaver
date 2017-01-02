@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create(fname: 'Test', lname: 'User', email: 'test@test.com', password: 'password')
+goal = Goal.create(name: 'One Million Dollars', date: '2030-1-1', currency: 'USD', value: 1000000, user_id: user.id)
+asslibhome = Asslib.create(name: 'Home', description: 'Primary Residence', altype: 'asset', currency: 'USD', user_id: user.id)
+asslibinv = Asslib.create(name: 'Stocks', description: 'Stocks & Bonds', altype: 'asset', currency: 'USD', user_id: user.id)
+
+Valuation.create(date: '2015-01-01', value: 500000, user: user, asslib: asslibhome)
