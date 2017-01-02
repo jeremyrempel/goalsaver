@@ -53,17 +53,17 @@ ActiveRecord::Schema.define(version: 20161106233312) do
 
   create_table "valuations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "asslibs_id"
-    t.integer  "year"
-    t.string   "period"
+    t.integer  "asslib_id"
+    t.date     "date"
     t.decimal  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asslibs_id"], name: "index_valuations_on_asslibs_id", using: :btree
+    t.index ["asslib_id"], name: "index_valuations_on_asslib_id", using: :btree
     t.index ["user_id"], name: "index_valuations_on_user_id", using: :btree
   end
 
   add_foreign_key "asslibs", "users"
   add_foreign_key "goals", "users"
+  add_foreign_key "valuations", "asslibs"
   add_foreign_key "valuations", "users"
 end
