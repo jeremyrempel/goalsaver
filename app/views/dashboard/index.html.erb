@@ -1,9 +1,8 @@
 <div class="center jumbotron">
   <h1>Welcome to Goal Saver</h1>
-
-  <h2>
-  This is the home page for the
-  <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
-  </h2>
 </div>
+
+<h2>Valuation Snapshot</h2>
+
+  <!-- <%= pie_chart Goal.group(:name).count %> -->
+  <%= line_chart Valuation.group_by_year(:date).sum(:value), download: true %>
