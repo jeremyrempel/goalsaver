@@ -21,6 +21,10 @@ gem 'coffee-rails', '~> 4.2'
 
 # use React as Javascript library
 gem 'react-rails'
+# javascript charting library
+gem 'chartkick'
+# group by library used by chartkick
+gem 'groupdate'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
