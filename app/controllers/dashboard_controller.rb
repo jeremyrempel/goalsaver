@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
       loop do
         break if d > g.end_date
         # todo derive this based on rate of return
-        gv = gv + g.rate_of_savings
+        gv = ( (gv + g.rate_of_savings) * (g.rate_of_return + 1)).round
         goal_data[d] = gv
         d = d.next_year
       end
