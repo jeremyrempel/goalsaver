@@ -5,4 +5,4 @@
 <h2>Valuation Snapshot</h2>
 
   <!-- <%= pie_chart Goal.group(:name).count %> -->
-  <%= line_chart Valuation.group_by_year(:date).sum(:value), download: true %>
+  <%= line_chart @chart_data %>

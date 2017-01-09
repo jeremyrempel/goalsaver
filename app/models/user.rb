@@ -8,5 +8,6 @@ class User < ApplicationRecord
     # foreign keys
     has_many :asslibs, dependent: :destroy
     has_many :goals, dependent: :destroy
+    has_many :valuations, dependent: :destroy
 
 end

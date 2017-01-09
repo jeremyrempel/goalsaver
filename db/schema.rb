@@ -29,12 +29,15 @@ ActiveRecord::Schema.define(version: 20161106233312) do
 
   create_table "goals", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",       limit: 50, null: false
-    t.date     "date"
-    t.decimal  "value"
-    t.string   "currency"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "name",            limit: 50,                 null: false
+    t.date     "start_date",                                 null: false
+    t.date     "end_date",                                   null: false
+    t.decimal  "start_value",                                null: false
+    t.decimal  "rate_of_return",             default: "0.0", null: false
+    t.decimal  "rate_of_savings",            default: "0.0", null: false
+    t.string   "currency",                                   null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.index ["user_id"], name: "index_goals_on_user_id", using: :btree
   end
 
