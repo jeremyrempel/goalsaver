@@ -2,14 +2,13 @@ class Valuation < ApplicationRecord
   belongs_to :user
   belongs_to :asslib
 
-  # attr_reader
-  def period
-    self[:period]
-  end
-
   # attr_writer
   def period=(val)
     self[:period] = val
+  end
+
+  def period
+    "Q" + (((Time.now.month - 1) / 3) + 1).to_s
   end
 
   validates :date, presence: true
