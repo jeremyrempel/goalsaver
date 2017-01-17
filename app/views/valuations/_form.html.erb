@@ -18,7 +18,7 @@
 
   <div class="form-group">
     <%= f.label :year %>
-    <%= f.select(:year,[],{},{:class => "form-control"}) do %>
+    <%= f.select(:date,[],{},{:class => "form-control"}) do %>
       <% for i in 2000..Time.now.year do -%>
         <%= content_tag(:option, i, value: i) %>
       <% end %>

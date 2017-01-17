@@ -17,13 +17,28 @@
   </div>
 
   <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
   </div>
 
   <div class="field">
-    <%= f.label :value %>
-    <%= f.text_field :value %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_value %>
+    <%= f.text_field :start_value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate_of_savings %>
+    <%= f.text_field :rate_of_savings %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate_of_return %>
+    <%= f.text_field :rate_of_return %>
   </div>
 
   <div class="field">
