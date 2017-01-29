@@ -40,8 +40,8 @@
   <div class="form-group">
     <%= f.label :currency %>
     <%= f.select(:currency,[],{},{:class => "form-control"}) do %>
-      <% [['USD', 'USD'], ['CAD', 'CAD']].each do |c| -%>
-        <%= content_tag(:option, c.first, value: c.last) %>
+      <% [['USD'], ['CAD']].each do |c| -%>
+        <%= content_tag(:option, c.first, selected: (c.last == asslib.currency)) %>
       <% end %>
     <% end %>
   </div>
