@@ -11,42 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :altype, 'Asset/Liability' %>
-    <%= f.select(:altype) do %>
+    <%= f.select(:altype,[],{},{:class => "form-control"}) do %>
       <% [['Asset', 'ASSET'], ['Liability', 'LIABILITY']].each do |c| -%>
-        <%= content_tag(:option, c.first, value: c.last) %>
+        <%= content_tag(:option, c.first, selected: (c.last == asslib.altype ) ) %>
       <% end %>
     <% end %>
   </div>
 
   <% if !@asslib.new_record? %>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :active %>
-      <%= f.check_box :active, :checked => true %>
+      <%= f.check_box :active, :checked => true, :class => "form-control" %>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :currency %>
-    <%= f.select(:currency) do %>
+    <%= f.select(:currency,[],{},{:class => "form-control"}) do %>
       <% [['USD', 'USD'], ['CAD', 'CAD']].each do |c| -%>
         <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
     <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Save" %>
+  <div class="btn-group" role="group" aria-label="...">
+    <%= f.submit 'Save', :class => "btn btn-primary active" %>
+    <%= link_to 'Cancel', asslibs_path, :class => "btn btn-default" %>
   </div>
+
 <% end %>
