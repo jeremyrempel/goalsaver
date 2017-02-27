@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 #gem 'jquery-rails'
 
+gem 'simplecov', :require => false, :group => :test
+
 # use React as Javascript library
 gem 'react-rails'
 # javascript charting library
