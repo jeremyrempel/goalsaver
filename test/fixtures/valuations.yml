@@ -3,13 +3,11 @@
 one:
   user_id: 1
   asslib_id: 1
-  year: 
-  period: MyString
+  date: 2017-01-01
   value: 9.99
 
 two:
   user_id: 1
   asslib_id: 1
-  year: 
-  period: MyString
+  date: 017-01-01
   value: 9.99
