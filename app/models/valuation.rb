@@ -11,6 +11,8 @@ class Valuation < ApplicationRecord
     "Q" + (((Time.now.month - 1) / 3) + 1).to_s
   end
 
+  validates :user, presence: true
+  validates :asslib, presence: true
   validates :date, presence: true
-  validates :value, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
+  validates :value, presence: true, :numericality => { :greater_than => 0 }
 end

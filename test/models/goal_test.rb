@@ -6,13 +6,26 @@ class GoalTest < ActiveSupport::TestCase
   # end
 
   def setup
-      @goal = Goal.new(name: "One Million", start_value: 1000000, start_date: 2017-01-01,
-      end_date: 10.years.from_now, rate_of_return: 0.07, rate_of_savings: 1000, currency: "USD")
+    user = User.new(fname: "Test", lname: "User", email: "testuser@test.com", password: "password")
+
+    @goal = Goal.new(user: user, name: "One Million", start_value: 1000000, start_date: 2017-01-01,
+    end_date: 10.years.from_now, rate_of_return: 0.07, rate_of_savings: 1000, currency: "USD")
+  end
+
+  test "should belong to user" do
+    t = Goal.reflect_on_association(:user)
+    assert t.macro == :belongs_to
+    assert t.name == :user
   end
 
   # check required fields
+  test "user is required" do
+    @goal.user = nil
+    assert_not @goal.valid?
+  end
+
   test "should be valid" do
-    assert @goal.valid?
+    assert @goal.valid?, @goal.errors.full_messages.inspect
   end
 
   test "name should be present" do
