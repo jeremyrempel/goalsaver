@@ -1,0 +1,45 @@
+<%= form_for(valuation) do |f| %>
+  <% if valuation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valuation.errors.count, "error") %> prohibited this valuation from being saved:</h2>
+
+      <ul>
+      <% valuation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :asslib_id, "Asset/Liability" %>
+    <%= collection_select(:valuation, :asslib_id, Asslib.all, :id, :name, {}, {:class => "form-control"}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.select(:date,[],{},{:class => "form-control"}) do %>
+      <% for i in 2000..Time.now.year do -%>
+        <%= content_tag(:option, i, value: i) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :period %>
+    <%= f.select(:period, ['Q1','Q2', 'Q3','Q4'], {}, {:class => "form-control"})%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :value %>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <%= f.text_field :value, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="...">
+    <%= f.submit 'Save', :class => "btn btn-primary active" %>
+    <%= link_to 'Cancel', valuations_path, :class => "btn btn-default" %>
+  </div>
+<% end %>

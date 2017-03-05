@@ -10,22 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030182910) do
+ActiveRecord::Schema.define(version: 20161106233312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "asslibs", force: :cascade do |t|
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.string   "name",                       null: false
     t.text     "description"
     t.string   "altype",                     null: false
     t.boolean  "active",      default: true, null: false
     t.string   "currency",                   null: false
-    t.integer  "user_id",                    null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["users_id"], name: "index_asslibs_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_asslibs_on_user_id", using: :btree
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name",            limit: 50,                 null: false
+    t.date     "start_date",                                 null: false
+    t.date     "end_date",                                   null: false
+    t.decimal  "start_value",                                null: false
+    t.decimal  "rate_of_return",             default: "0.0", null: false
+    t.decimal  "rate_of_savings",            default: "0.0", null: false
+    t.string   "currency",                                   null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["user_id"], name: "index_goals_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +54,19 @@ ActiveRecord::Schema.define(version: 20161030182910) do
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
+  create_table "valuations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "asslib_id"
+    t.date     "date"
+    t.decimal  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asslib_id"], name: "index_valuations_on_asslib_id", using: :btree
+    t.index ["user_id"], name: "index_valuations_on_user_id", using: :btree
+  end
+
   add_foreign_key "asslibs", "users"
+  add_foreign_key "goals", "users"
+  add_foreign_key "valuations", "asslibs"
+  add_foreign_key "valuations", "users"
 end

@@ -1,9 +1,8 @@
 <div class="center jumbotron">
   <h1>Welcome to Goal Saver</h1>
-
-  <h2>
-  This is the home page for the
-  <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
-  </h2>
 </div>
+
+<h2>Valuation Snapshot</h2>
+
+  <!-- <%= pie_chart Goal.group(:name).count %> -->
+  <%= area_chart @chart_data %>

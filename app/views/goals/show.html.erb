@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @goal.name %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @goal.start_date %>
+</p>
+
+<p>
+  <strong>End Date:</strong>
+  <%= @goal.end_date %>
+</p>
+
+<p>
+  <strong>Start Value:</strong>
+  <%= @goal.start_value %>
+</p>
+
+<p>
+  <strong>Annual Rate of Return:</strong>
+  <%= @goal.rate_of_return * 100 %>%
+</p>
+
+<p>
+  <strong>Monthly Savings:</strong>
+  $<%= @goal.rate_of_savings / 12 %>
+
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @goal.currency %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal), class: "btn btn-default" %>
+<%= link_to 'Back', goals_path,  class: "btn btn-primary active" %>

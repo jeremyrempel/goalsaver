@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset/Liability:</strong>
+  <%= @valuation.asslib.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @valuation.date %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @valuation.period %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  $<%= @valuation.value %>
+</p>
+
+<%= link_to 'Edit', edit_valuation_path(@valuation) %> |
+<%= link_to 'Back', valuations_path %>

@@ -1,0 +1,56 @@
+<%= form_for(goal) do |f| %>
+  <% if goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_value %>
+    <%= f.text_field :start_value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate_of_savings %>
+    <%= f.text_field :rate_of_savings %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate_of_return %>
+    <%= f.text_field :rate_of_return %>
+  </div>
+
+  <div class="field">
+    <%= f.label :currency %>
+    <%= f.select(:currency) do %>
+      <% [['USD', 'USD'], ['CAD', 'CAD']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Save', :class => "btn btn-primary active" %>
+  </div>
+<% end %>

@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Goal Saver is an application developed to assist tracking Saving Goals. The application was developed and tested on a Mac.
 
-Things you may want to cover:
+## System Dependencies
+* Ruby v2.4.0
+* Rails 5.1.0
+* Postgresql 9.6.1.0
 
-* Ruby version
+## Setup
+* Install Rails 5.1.0, Ruby and Git. [Instructions](http://installrails.com/)
+* Setup PostgreSQL and create databases: goalsaver_development and goalsaver_test
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployment instructions
+* The live application is currently hosted on Heroku at http://goalsaver.com
