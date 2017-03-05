@@ -11,46 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :end_date %>
     <%= f.date_select :end_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :start_value %>
-    <%= f.text_field :start_value %>
+    <%= f.text_field :start_value, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :rate_of_savings %>
-    <%= f.text_field :rate_of_savings %>
+    <%= f.text_field :rate_of_savings, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :rate_of_return %>
-    <%= f.text_field :rate_of_return %>
+    <%= f.text_field :rate_of_return, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :currency %>
-    <%= f.select(:currency) do %>
-      <% [['USD', 'USD'], ['CAD', 'CAD']].each do |c| -%>
-        <%= content_tag(:option, c.first, value: c.last) %>
-      <% end %>
-    <% end %>
+    <%= f.select(:currency, ['CAD','USD'], {}, {:class => "form-control"}) %>
   </div>
 
-  <div class="actions">
+  <div class="btn-group" role="group" aria-label="...">
     <%= f.submit 'Save', :class => "btn btn-primary active" %>
+    <%= link_to 'Cancel', valuations_path, :class => "btn btn-default" %>
   </div>
+
 <% end %>
