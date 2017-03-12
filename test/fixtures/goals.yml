@@ -5,6 +5,7 @@ one:
   start_date: 2016-11-05
   end_date: 2020-01-01
   start_value: 9.99
+  end_value: 20.99
   currency: MyString
   user_id: 1
 
@@ -13,5 +14,6 @@ two:
   start_date: 2016-11-05
   end_date: 2020-01-01
   start_value: 9.99
+  end_value: 20.99
   currency: MyString
   user_id: 1

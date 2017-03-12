@@ -9,6 +9,7 @@
       <th>Start Date</th>
       <th>End Date</th>
       <th>Start Value</th>
+      <th>End Value</th>
       <th>Annual Rate of Return</th>
       <th>Monthly Savings</th>
       <th>Currency</th>
@@ -23,11 +24,12 @@
         <td><%= goal.start_date %></td>
         <td><%= goal.end_date %></td>
         <td>$<%= goal.start_value %></td>
+        <td>$<%= goal.end_value %></td>
         <td><%= goal.rate_of_return * 100 %>%</td>
         <td>$<%= goal.rate_of_savings/12 %></td>
         <td><%= goal.currency %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal), class: "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Delete', goal, method: :delete, class: "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>

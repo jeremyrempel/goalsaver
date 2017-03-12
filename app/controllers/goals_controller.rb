@@ -65,13 +65,13 @@ class GoalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_goal
-      @goal = Goal.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_goal
+    @goal = Goal.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def goal_params
-      params.require(:goal).permit(:name, :start_value, :start_date, :end_date, :rate_of_return, :rate_of_savings, :currency)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def goal_params
+    params.require(:goal).permit(:name, :start_value, :end_value, :start_date, :end_date, :rate_of_return, :rate_of_savings, :currency)
+  end
 end
