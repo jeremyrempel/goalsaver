@@ -22,7 +22,7 @@
         <td><%= asslib.altype %></td>
         <td><%= asslib.active %></td>
         <td><%= asslib.currency %></td>
-        <td><%= link_to 'Edit', edit_valuation_path(asslib), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_asslib_path(asslib), class: "btn btn-default btn-xs" %></td>
         <td><%= link_to 'Delete', asslib, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %></td>
       </tr>
     <% end %>
