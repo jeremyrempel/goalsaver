@@ -22,10 +22,7 @@ class DashboardController < ApplicationController
         d = d.next_year
       end
 
-      # gd = { Date.new(2000,1,1) => 1000, Date.new(2001,1,1) => 2000 }
-      @chart_data.push( {name: g.name, data: goal_data} )
-      # @chart_data.push [name: g.name, data: goal_data]
-
+      @chart_data.push(name: g.name, data: goal_data)
     end
   end
 end
