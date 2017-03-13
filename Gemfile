@@ -21,8 +21,6 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'simplecov', :require => false, :group => :test
 
-# use React as Javascript library
-gem 'react-rails'
 # javascript charting library
 gem 'chartkick'
 # group by library used by chartkick
