@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @valuation.date %>
+  <strong>Year:</strong>
+  <%= @valuation.date.year %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Value:</strong>
-  $<%= @valuation.value %>
+  $<%= number_with_precision(@valuation.value, precision: 2, :delimiter => ',') %>
 </p>
 
 <%= link_to 'Edit', edit_valuation_path(@valuation) %> |
