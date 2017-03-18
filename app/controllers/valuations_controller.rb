@@ -5,7 +5,7 @@ class ValuationsController < ApplicationController
   # GET /valuations
   # GET /valuations.json
   def index
-    @valuations = Valuation.all
+    @valuations = current_user.valuations
   end
 
   # GET /valuations/1
@@ -66,13 +66,13 @@ class ValuationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_valuation
-      @valuation = Valuation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_valuation
+    @valuation = Valuation.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def valuation_params
-      params.require(:valuation).permit(:asslib_id, :year, :period, :value)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def valuation_params
+    params.require(:valuation).permit(:asslib_id, :year, :period, :value)
+  end
 end

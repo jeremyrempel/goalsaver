@@ -6,6 +6,7 @@ class CreateGoals < ActiveRecord::Migration[5.0]
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.decimal :start_value, null: false
+      t.decimal :end_value, null: false
       t.decimal :rate_of_return, :default => 0, null: false
       t.decimal :rate_of_savings, :default => 0, null: false
       t.string :currency, :precision => 8, :scale => 2, null: false

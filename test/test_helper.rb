@@ -6,6 +6,8 @@ require 'clearance/test_unit'
 require 'simplecov'
 SimpleCov.start
 
+include Clearance::Testing::ControllerHelpers
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

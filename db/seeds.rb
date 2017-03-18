@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(fname: 'Test', lname: 'User', email: 'test@test.com', password: 'password')
-goal = Goal.create(name: 'One Million Dollars', start_date: '2000-1-1' , end_date: '2030-1-1', currency: 'USD', start_value: 100000, rate_of_return: 0.1, rate_of_savings: 18000, user_id: user.id)
+goal1 = Goal.create(name: 'One Million Dollars', start_date: '2000-1-1' , end_date: '2030-1-1', currency: 'USD', start_value: 100000, end_value: 1000000, rate_of_return: 0.1, rate_of_savings: 18000, user_id: user.id)
+goal2 = Goal.create(name: 'Home', start_date: '2005-1-1', end_date: '2015-1-1', currency: 'USD', start_value: 10000, end_value: 100000, rate_of_return: 0.1, rate_of_savings: 18000, user_id: user.id)
+
 asslibhome = Asslib.create(name: 'Home', description: 'Primary Residence', altype: 'asset', currency: 'USD', user_id: user.id)
 asslibinv = Asslib.create(name: 'Stocks', description: 'Stocks & Bonds', altype: 'asset', currency: 'USD', user_id: user.id)
 

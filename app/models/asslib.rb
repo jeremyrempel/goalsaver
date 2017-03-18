@@ -2,7 +2,7 @@ class Asslib < ApplicationRecord
   belongs_to :user
   has_many :valuations
 
-  enum altype: [ :asset, :liability ]
+  # enum altype: [:asset, :liability]
 
   validates :user, presence: true
   validates :name, presence: true, length: { maximum: 50 }

@@ -8,7 +8,7 @@ class GoalTest < ActiveSupport::TestCase
   def setup
     user = User.new(fname: "Test", lname: "User", email: "testuser@test.com", password: "password")
 
-    @goal = Goal.new(user: user, name: "One Million", start_value: 1000000, start_date: 2017-01-01,
+    @goal = Goal.new(user: user, name: "One Million", start_value: 1000, end_value: 100000, start_date: Date.today,
     end_date: 10.years.from_now, rate_of_return: 0.07, rate_of_savings: 1000, currency: "USD")
   end
 
@@ -16,6 +16,11 @@ class GoalTest < ActiveSupport::TestCase
     t = Goal.reflect_on_association(:user)
     assert t.macro == :belongs_to
     assert t.name == :user
+  end
+
+  test "end date should be after start date" do
+    @goal.end_date = @goal.start_date
+    assert_not @goal.valid?
   end
 
   # check required fields
@@ -33,13 +38,18 @@ class GoalTest < ActiveSupport::TestCase
     assert_not @goal.valid?
   end
 
-  test "value should be present" do
+  test "start value should be present" do
     @goal.start_value = "   "
     assert_not @goal.valid?
   end
 
-  test "value should be positive number" do
+  test "start value should be positive number" do
     @goal.start_value = 0
+    assert_not @goal.valid?
+  end
+
+  test "end value should be postive number" do
+    @goal.end_value = 0;
     assert_not @goal.valid?
   end
 

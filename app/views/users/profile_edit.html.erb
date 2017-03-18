@@ -1,0 +1,23 @@
+<h1>Profile</h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= form_for @user, url: [@users, :profile] do |f| %>
+    <div class="form-group">
+      <%= f.label 'First Name' %>
+      <%= f.text_field :fname, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Last Name' %>
+      <%= f.text_field :lname, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'E-mail' %>
+      <%= f.text_field :email, :class => 'form-control', :disabled => true %>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to 'Edit Password', edit_user_password_path(@user.id), :class => 'btn btn-warning' %>
+      <%= f.submit 'Save', :class => "btn btn-primary active" %>
+    </div>
+<% end %>

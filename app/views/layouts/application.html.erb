@@ -13,11 +13,12 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
     <nav>
 
-    <%= link_to "Goal Saver", root_path, id: "logo" %>
+    <%= link_to 'Goal Saver', root_path, id: 'logo' %>
+    <%= link_to 'Goal Saver', root_path, id: 'logo' %>
 
     <% if signed_in? %>
       <div id="welcome-user">
-          Signed in as <%= current_user.fname + " " + current_user.lname %>
+          Signed in as <%= current_user.fname + ' ' + current_user.lname %>
       </div>
     <% end %>
 
@@ -26,11 +27,10 @@
         <li><%= link_to 'Asset/Liabilities', asslibs_path %></li>
         <li><%= link_to 'Goals', goals_path %></li>
         <li><%= link_to 'Valuations', valuations_path %></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Help</a></li>
-        <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+        <li><%= link_to 'Profile', [@users, :profile] %>/li>
+        <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to "Sign in", sign_in_path %></li>
+        <li><%= link_to 'Sign in', sign_in_path %></li>
       <% end %>
 
     </ul>
