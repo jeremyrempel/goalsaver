@@ -1,6 +1,6 @@
 class Asslib < ApplicationRecord
   belongs_to :user
-  has_many :valuations
+  has_many :valuations, dependent: :destroy
 
   # enum altype: [:asset, :liability]
 
@@ -9,4 +9,5 @@ class Asslib < ApplicationRecord
   validates :altype, presence: true
   validates :active, inclusion: { in: [true, false] }
   validates :currency, presence: true
+
 end
