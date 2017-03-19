@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
   delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
   get '/sign_up' => 'clearance/users#new', as: 'sign_up'
-  get '/profile' => 'users#profile_edit', as: 'profile'
-  patch '/profile' => 'users#profile_update'
 
+  resources :user_profile
   resources :valuations
   resources :goals
   resources :asslibs
